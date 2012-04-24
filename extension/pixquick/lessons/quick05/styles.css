@@ -1,0 +1,115 @@
+.header1
+{
+	font-family: Courier New;
+	font-size: 12px;
+	font-weight: bold;	
+	color: #000000;
+}
+
+.header2
+{
+	font-family: Copy(".header1");
+	color: #FF0000;
+	font-size: 20;
+	font-weight: Copy(".header1");
+}
+
+.header2.normal
+{
+	color: #00FF00;
+	font-size: Copy(".header1");
+	font-weight: normal;
+}
+.header2.effect
+{
+	color: #000000;
+	font-size: Copy(".header1");
+	font-weight: normal;
+	filter: Filters("flash.filters.DropShadowFilter", 4, 45, 0xFF0000, 0.5|"flash.filters.BlurFilter", 4, 0);
+}
+
+.title1, .title2
+{
+	font-family: Copy(".header1");
+	color: Copy(".header1");
+	font-size: 14;
+}
+.title1.sub
+{
+	font-size: FlashVar("textSize");
+}
+
+.injection1
+{
+	font-family: Copy(".title1");
+	color: Copy(".title1");
+	font-size: Copy(".title1");
+	text-decoration: underline;
+	text: Text value direct from CSS StyleSheet in .injection1 style;
+	selectable: false;
+}
+
+.injection2
+{
+	font-family: Copy(".title1");
+	color: Copy(".title1");
+	font-size: Copy(".title1");
+	text: Func("getOS", ".injection2 method");
+	selectable: false;
+	text-decoration: Func("getDecoration");
+}
+
+.injection3
+{
+	font-family: Copy(".title1");
+	color: Copy(".title1");
+	font-size: Copy(".title1");
+	text: Copy(".injection2");
+	selectable: false;
+}
+
+.clip
+{
+	x: 10;
+	y: 10;
+	filter: Filters("flash.filters.DropShadowFilter", 4, 45, 0xFF0000, 0.5|"flash.filters.BlurFilter", 4, 0);
+}
+	
+..myclass
+{ 
+	StyleClassAlias: StyleTestVO;
+	
+	font-size:16px;
+	
+	font-weight: bold;
+	color: #00FF00;
+	
+	age: 32;
+	
+	width:100;
+	width1:100;
+	width2:100px;
+	width3: 100px;
+	width4:100px;
+	width5: 100px;
+	width6:   100px;
+	width7: 100 px;
+	
+	myStrat: ClassReference("net.pixlib.encoding.CSSDeserializer");
+	
+	sizeRange: Instance("net.pixlib.structures.Range", 2, 50);
+	infos: Instance("Array", "AS3", "Opensource", 10.1);
+	
+	background-image: ResourceLocator("bitmap", "background");
+	
+	color: CoreFactory("textColor");
+	
+	font-family: FlashVar("appFont");
+}
+
+.myclass.mypimp
+{
+	myStrat: ClassReference("net.pixlib.structures.Dimension");
+	myName: Romain Ecarnot;
+	age:33;
+}
