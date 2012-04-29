@@ -9,7 +9,7 @@ package net.pixlib.log.layout
 
 	import flash.events.Event;
 
-	/**	 * The PXDeMonsterDebuggerLayout class provides a convenient way	 * to output messages through <strong>De MonsterDebugger</strong> AIR application.	 * 	 * @example Basic example	 * <listing>	 * 	 * PXDeMonsterDebuggerLayout.CLIENT = MonsterDebugger;	 * PXLogManager.getInstance().addLogListener(PXDeMonsterDebuggerLayout.getInstance());	 * </listing>	 * 	 * @example Customize De MonsterDebugger client class	 * <listing>	 * 	 * PXDeMonsterDebuggerLayout.CLIENT = MyDeMonsterClient;	 * PXDeMonsterDebuggerLayout.AUTO_CLEAR = false;	 * 	 * PXLogManager.getInstance().addLogListener(PXDeMonsterDebuggerLayout.getInstance());	 * </listing>	 * 	 * @see #CLIENT Customize De MonsterDebugger client class	 * @see PIXLIB_DOC/net/pixlib/log/PXLogManager.html net.pixlib.log.PXLogManager	 * @see PIXLIB_DOC/net/pixlib/log/PXLogListener net.pixlib.log.PXLogListener	 * @see PIXLIB_DOC/net/pixlib/log/PXLogLevel net.pixlib.log.PXLogLevel	 * @see http://www.demonsterdebugger.com De MonsterDebugger site	 * 	 * @langversion 3.0	 * @playerversion Flash 10	 * 	 * @author Romain Ecarnot	 */
+	/**	 * The PXDeMonsterDebuggerLayout class provides a convenient way	 * to output messages through <strong>De MonsterDebugger</strong> AIR application.	 * 	 * @example Basic example	 * <listing>	 * 	 * PXDeMonsterDebuggerLayout.CLIENT = com.demonsters.debugger.MonsterDebugger;	 * PXDeMonsterDebuggerLayout.ROOT = this;	 * PXLogManager.getInstance().addLogListener(PXDeMonsterDebuggerLayout.getInstance());	 * </listing>	 * 	 * @example Customize De MonsterDebugger client class	 * <listing>	 * 	 * PXDeMonsterDebuggerLayout.CLIENT = MyDeMonsterClient;	 * PXDeMonsterDebuggerLayout.ROOT = this;	 * PXDeMonsterDebuggerLayout.AUTO_CLEAR = false;	 * 	 * PXLogManager.getInstance().addLogListener(PXDeMonsterDebuggerLayout.getInstance());	 * </listing>	 * 	 * @see #CLIENT Customize De MonsterDebugger client class	 * @see PIXLIB_DOC/net/pixlib/log/PXLogManager.html net.pixlib.log.PXLogManager	 * @see PIXLIB_DOC/net/pixlib/log/PXLogListener net.pixlib.log.PXLogListener	 * @see PIXLIB_DOC/net/pixlib/log/PXLogLevel net.pixlib.log.PXLogLevel	 * @see http://www.demonsterdebugger.com De MonsterDebugger site	 * 	 * @langversion 3.0	 * @playerversion Flash 10	 * 	 * @author Romain Ecarnot	 */
 	final public class PXDeMonsterDebuggerLayout implements PXLogListener
 	{
 		// --------------------------------------------------------------------
@@ -28,7 +28,7 @@ package net.pixlib.log.layout
 		// Public properties
 		// --------------------------------------------------------------------
 		/**		 * The De MonsterDebugger client class to user.		 * 		 * @default net.pixlib.log.layout.MonsterDebugger class		 * 		 * @langversion 3.0		 * @playerversion Flash 10		 */
-		public static var CLIENT : Class = MonsterDebugger;
+		public static var CLIENT : Class = com.demonsters.debugger.MonsterDebugger;
 		
 		/**		 * Default De MonsterDebugger client root target.		 * 		 * @default null Use the PXbApplication.getInstance().root if 		 * defined.		 * 		 * @langversion 3.0		 * @playerversion Flash 10		 */
 		public static var ROOT : Object = null;
@@ -108,9 +108,6 @@ package net.pixlib.log.layout
 		/**		 * @private		 */
 		function PXDeMonsterDebuggerLayout()
 		{
-			new CLIENT(ROOT);
-			initColorMap();
-			if (AUTO_CLEAR) onClear();
-		}
+			if( Class( CLIENT ).VERSION < 3 )			{				new CLIENT( ROOT );				}			else			{				Class( CLIENT ).initialize( ROOT );			}			initColorMap();			if (AUTO_CLEAR) onClear();		}
 	}
 }
