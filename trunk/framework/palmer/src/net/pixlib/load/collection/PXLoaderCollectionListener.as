@@ -35,7 +35,7 @@ package net.pixlib.load.collection
 		 * @langversion 3.0
 		 * @playerversion Flash 10
 		 */
-		function onItemLoadStart( event : PXLoaderEvent ) : void;
+		function onItemLoadStart( event : PXLoaderCollectionEvent ) : void;
 
 		/**
 		 * Triggered when an item loading is finished.
@@ -43,7 +43,7 @@ package net.pixlib.load.collection
 		 * @langversion 3.0
 		 * @playerversion Flash 10
 		 */
-		function onItemLoadInit( event : PXLoaderEvent ) : void;
+		function onItemLoadInit( event : PXLoaderCollectionEvent ) : void;
 
 		/**
 		 * Triggered during item loading progession.
@@ -51,7 +51,7 @@ package net.pixlib.load.collection
 		 * @langversion 3.0
 		 * @playerversion Flash 10
 		 */
-		function onItemLoadProgress( event : PXLoaderEvent ) : void;
+		function onItemLoadProgress( event : PXLoaderCollectionEvent ) : void;
 
 		/**
 		 * Triggered when the item loading time causes a tiemout.
@@ -59,7 +59,7 @@ package net.pixlib.load.collection
 		 * @langversion 3.0
 		 * @playerversion Flash 10
 		 */
-		function onItemLoadTimeOut( event : PXLoaderEvent ) : void;
+		function onItemLoadTimeOut( event : PXLoaderCollectionEvent ) : void;
 
 		/**
 		 * Triggered when an error occurs during item loading
@@ -67,6 +67,6 @@ package net.pixlib.load.collection
 		 * @langversion 3.0
 		 * @playerversion Flash 10
 		 */
-		function onItemLoadError( event : PXLoaderEvent ) : void;
+		function onItemLoadError( event : PXLoaderCollectionEvent ) : void;
 	}
 }
