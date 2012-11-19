@@ -437,7 +437,7 @@ package net.pixlib.load.collection
 				if ( loader == null ) return false;
 
 				loader.name = key != null ? key : loader.name != null ? loader.name : PXHashCode.getKey(loader);
-
+				
 				if ( loadingRequest )
 				{
 					loader.request = loadingRequest;
@@ -528,7 +528,7 @@ package net.pixlib.load.collection
 		 * @langversion 3.0
 		 * @playerversion Flash 10
 		 */
-		final protected function getLoaderCollectionEvent(type : String, loader : PXLoader = null, errorMessage : String = "") : PXLoaderEvent
+		final protected function getLoaderCollectionEvent(type : String, loader : PXLoader = null, errorMessage : String = "") : PXLoaderCollectionEvent
 		{
 			return new PXLoaderCollectionEvent(type, this, loader, errorMessage);
 		}
